@@ -1,0 +1,16 @@
+.loader-container {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+    text-align: center;
+    line-height: 1.6rem;
+}
+  
+.loader-container-inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 $layout-spacer-x;
+}

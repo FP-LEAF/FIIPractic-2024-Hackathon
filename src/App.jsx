@@ -1,16 +1,16 @@
-import React, { Suspense, lazy, Fragment } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import React, { Suspense, lazy, Fragment, useEffect } from "react";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 import Loader from "react-loaders";
-import logo from './logo.svg';
-import './Styles/App.css';
 
 const Login = lazy(() => import("./Pages/Login/Login"));
+const Home = lazy(() => import("./Pages/Home/Home"));
 
 const Fallback = (
   <div className="loader-container">
     <div className="loader-container-inner">
       <div className="text-center">
-        <Loader type="ball-scale-ripple" />
+        <Loader type="ball-clip-rotate-multiple" />
       </div>
       <h6 className="mt-3">
         <small>Va rugam asteptati</small>
@@ -20,12 +20,26 @@ const Fallback = (
 );
 
 const App = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('TOKEN');
+    console.log(token)
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
   return (
     <Fragment>
+      <ToastContainer />
       <Suspense fallback={Fallback}>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="*" element={
+            <ProtectedComponent />
+          } />
         </Routes>
       </Suspense>
     </Fragment>
@@ -33,3 +47,7 @@ const App = () => {
 }
 
 export default App;
+
+const ProtectedComponent = () => {
+  return <div>N-ai voie</div>;
+}
