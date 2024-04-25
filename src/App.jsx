@@ -3,7 +3,7 @@ import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import Loader from "react-loaders";
 
-const Login = lazy(() => import("./Pages/Login/Login"));
+const Login = lazy(() => import("./Pages/Login/views/Login"));
 const Home = lazy(() => import("./Pages/Home/Home"));
 
 const Fallback = (
