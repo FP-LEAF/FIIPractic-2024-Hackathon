@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { handleApiErrors } from '../../../Components/Alerts/errors.js';
 
 // czr
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import registerBg from '../assets/img/register_bg_2.png';
 
 
@@ -34,6 +34,22 @@ export default function Login() {
   };
 
   const formRef = useRef(null);  // Use a ref to access the form for submission
+  useEffect(() => {
+    const cssUrl = 'https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css';
+    const head = document.head;
+    const link = document.createElement('link');
+
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    link.href = cssUrl;
+
+    head.appendChild(link);
+
+    return () => {
+      head.removeChild(link);
+    };
+  }, []);
+
 
 
 
