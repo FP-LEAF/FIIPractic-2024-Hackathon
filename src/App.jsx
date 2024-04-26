@@ -5,6 +5,7 @@ import Loader from "react-loaders";
 
 const Login = lazy(() => import("./Pages/Login/views/Login"));
 const Home = lazy(() => import("./Pages/Home/Home"));
+const Profile = lazy(() => import("./Pages/Profile/views/Profile"));
 
 const Fallback = (
   <div className="loader-container">
@@ -36,6 +37,7 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={
             <ProtectedComponent />
           } />
