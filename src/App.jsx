@@ -5,11 +5,13 @@ import Loader from "react-loaders";
 import { DarkModeProvider } from "./Components/DarkMode/DarkModeProvider";
 import CapsuleCreationForm from "./Pages/CreateCapsule/views/CapsuleCreation";
 import Marketplace from "./Pages/Marketplace/views/Marketplace";
+import Treasurehunt from "./Pages/Treasurehunt/views/Treasurehunt";
 
 const Login = lazy(() => import("./Pages/Login/views/Login"));
-const Home = lazy(() => import("./Pages/Home/Home"));
+const Home = lazy(() => import("./Pages/Home/views/Landing"));
 const Profile = lazy(() => import("./Pages/Profile/views/Profile"));
 const Test = lazy(() => import("./Pages/Test/Test"));
+const Pricing = lazy(() => import("./Pages/Pricing/Pricing"));
 
 const Fallback = (
   <div className="loader-container">
@@ -47,6 +49,8 @@ const App = () => {
             <Route path="/bundle-creation" element={<BundleCreation />} />
             <Route path="/capsule-creation" element={<CapsuleCreationForm />} />
             <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/treasurehunt" element={<Treasurehunt />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="*" element={<ProtectedComponent />} />
           </Routes>
         </Suspense>

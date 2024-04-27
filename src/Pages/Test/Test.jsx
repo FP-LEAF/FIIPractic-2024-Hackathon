@@ -1,10 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import DarkModeToggle from '../../Components/DarkMode/DarkModeToggle';
 import { DarkModeContext } from '../../Components/DarkMode/DarkModeProvider';
 
 
 import { Footer } from "flowbite-react";
-import { Nav } from './Nav';
+
+
+import { Datepicker } from "flowbite-react";
+
+
 
 
 function TestPage() {
@@ -21,8 +25,35 @@ function TestPage() {
     return (
         <div className={`min-h-screen ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
 
-            <Nav></Nav>
+
             <DarkModeToggle />
+
+            <Datepicker />;
+
+            <div className="relative max-w-sm">
+                <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                    <svg
+                        className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                    >
+                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                    </svg>
+                </div>
+                <input
+
+                    type="text"
+                    className="input input-bordered bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 rounded-lg placeholder-gray-400 dark:placeholder-gray-400"
+                    placeholder="Select date"
+                />
+                <div className="datepicker">
+                    {/* Datepicker component or logic goes here */}
+                </div>
+            </div>
+
+
 
             <div class="flex items-start gap-2.5">
                 <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie Green image" />
