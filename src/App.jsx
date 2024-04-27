@@ -10,6 +10,7 @@ const Profile = lazy(() => import("./Pages/Profile/views/Profile"));
 const Test = lazy(() => import("./Pages/Test/Test"));
 const Pricing = lazy(() => import("./Pages/Pricing/Pricing"));
 const Capsule = lazy(() => import("./Pages/Capsule/Capsule"));
+const Feed = lazy(() => import("./Pages/Feed/views/Feed"));
 
 const Fallback = (
   <div className="loader-container">
@@ -46,6 +47,7 @@ const App = () => {
             <Route path="/test" element={<Test />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/capsule" element={<Capsule />} />
+            <Route path="/feed" element={<Feed />} />
             <Route path="*" element={
               <ProtectedComponent />
             } />
