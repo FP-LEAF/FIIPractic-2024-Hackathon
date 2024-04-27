@@ -14,15 +14,15 @@ export default function Navbar(props) {
       >
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a
+            <h1
               className={
                 (props.transparent ? "text-white" : "text-gray-800") +
                 " text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
               }
               href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/presentation"
             >
-              Tailwind Starter Kit
-            </a>
+              LEAF - HACKATHON
+            </h1>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"

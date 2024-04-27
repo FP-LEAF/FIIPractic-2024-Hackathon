@@ -10,11 +10,10 @@ const instance = axios.create({
 
 instance.interceptors.request.use(request => {
 
-    if (request.url !== "user/login" && !localStorage.getItem("TOKEN")) {
+    if (request.url !== "login/" && !localStorage.getItem("TOKEN")) {
 
         throw new axios.cancel("NO_TOKEN")
 
-        return window.location.replace("/login");
     }
 
     request.headers['x-access-token'] = localStorage.getItem("TOKEN");

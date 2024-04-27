@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 
 import { useEffect } from 'react';
-
-import profilePicture from '../assets/img/team-2-800x800.jpg';
+import api from '../../../api.js'
 
 
 export default function Profile() {
+
+  let [shouldUpdate, setShouldUpdate] = useState(0)
+  let [userInfo, setUserInfo] = useState({})
+
+  function decodeToken(token) {
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace("-", "+").replace("_", "/");
+    return JSON.parse(window.atob(base64));
+  }
 
 
   useEffect(() => {
@@ -26,6 +34,23 @@ export default function Profile() {
       head.removeChild(link);
     };
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let token = localStorage.getItem('TOKEN')
+      let userTokenInfo = decodeToken(token);
+      let { data } = await api.get(`user/userInfo?uuid=${userTokenInfo.uuid}`)
+
+      if (data) {
+        console.log(data)
+        setUserInfo(data)
+      }
+    }
+
+    fetchData()
+
+
+  }, [shouldUpdate])
 
 
 
@@ -75,7 +100,7 @@ export default function Profile() {
                     <div className="relative">
                       <img
                         alt="..."
-                        src={profilePicture}
+                        src={userInfo.img}
                         className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                         style={{ maxWidth: "150px" }}
                       />
@@ -117,7 +142,7 @@ export default function Profile() {
                 </div>
                 <div className="text-center mt-12">
                   <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
-                    Jenna Stones
+                    {userInfo.name.firstName + ' ' + userInfo.name.lastName}
                   </h3>
                   <div className="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
                     <i className="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>{" "}
@@ -136,11 +161,7 @@ export default function Profile() {
                   <div className="flex flex-wrap justify-center">
                     <div className="w-full lg:w-9/12 px-4">
                       <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                        An artist of considerable range, Jenna the name taken by
-                        Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                        performs and records all of his own music, giving it a
-                        warm, intimate feel with a solid groove structure. An
-                        artist of considerable range.
+                        {userInfo.quote}
                       </p>
                       <a
                         href="#pablo"
