@@ -44,6 +44,7 @@ const App = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/bundle-creation" element={<BundleCreation />} />
             <Route path="/capsule-creation" element={<CapsuleCreationForm />} />
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="*" element={<ProtectedComponent />} />
