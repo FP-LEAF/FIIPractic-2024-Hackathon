@@ -13,6 +13,7 @@ const Home = lazy(() => import("./Pages/Home/views/Landing"));
 const Profile = lazy(() => import("./Pages/Profile/views/Profile"));
 const Test = lazy(() => import("./Pages/Test/Test"));
 const Pricing = lazy(() => import("./Pages/Pricing/Pricing"));
+const Capsule = lazy(() => import("./Pages/Capsule/Capsule"));
 
 const Fallback = (
   <div className="loader-container">
@@ -52,6 +53,7 @@ const App = () => {
             <Route path="/treasurehunt" element={<Treasurehunt />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/auction" element={<Auction />} />
+            <Route path="/capsule" element={<Capsule />} />
             <Route path="*" element={<ProtectedComponent />} />
           </Routes>
         </Suspense>

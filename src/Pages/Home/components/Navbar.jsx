@@ -146,7 +146,8 @@ export default function NavbarOriginal(props) {
                           alt="User settings"
                           img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                           rounded
-                          size="md" // Adjust size to make the photo bigger
+                          size="md"
+                          bordered color="light" // Adjust size to make the photo bigger
                         />
                       }
                     >
