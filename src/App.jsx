@@ -8,6 +8,7 @@ import Marketplace from "./Pages/Marketplace/views/Marketplace";
 import Treasurehunt from "./Pages/Treasurehunt/views/Treasurehunt";
 // import { Bundle } from "./Pages/Bundle/Bundle";
 import Auction from "./Pages/Auction/Marketplace/views/Auction";
+import CommentSection from "./Pages/Feed/components/CommentSection";
 
 const Login = lazy(() => import("./Pages/Login/views/Login"));
 const Home = lazy(() => import("./Pages/Home/views/Landing"));
