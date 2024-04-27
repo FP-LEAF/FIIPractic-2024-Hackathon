@@ -2,10 +2,12 @@ import React, { Suspense, lazy, Fragment, useEffect } from "react";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import Loader from "react-loaders";
+import { DarkModeProvider } from "./Components/DarkMode/DarkModeProvider";
 
 const Login = lazy(() => import("./Pages/Login/views/Login"));
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Profile = lazy(() => import("./Pages/Profile/views/Profile"));
+const Test = lazy(() => import("./Pages/Test/Test"));
 
 const Fallback = (
   <div className="loader-container">
@@ -31,19 +33,22 @@ const App = () => {
   }, [navigate]);
 
   return (
-    <Fragment>
-      <ToastContainer />
-      <Suspense fallback={Fallback}>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={
-            <ProtectedComponent />
-          } />
-        </Routes>
-      </Suspense>
-    </Fragment>
+    <DarkModeProvider>
+      <Fragment>
+        <ToastContainer />
+        <Suspense fallback={Fallback}>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="*" element={
+              <ProtectedComponent />
+            } />
+          </Routes>
+        </Suspense>
+      </Fragment>
+    </DarkModeProvider>
   );
 }
 
