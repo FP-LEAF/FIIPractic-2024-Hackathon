@@ -1,9 +1,10 @@
 import React, { Suspense, lazy, Fragment, useEffect } from "react";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 import Loader from "react-loaders";
 import { DarkModeProvider } from "./Components/DarkMode/DarkModeProvider";
 import CapsuleCreationForm from "./Pages/CreateCapsule/views/CapsuleCreation";
+import Marketplace from "./Pages/Marketplace/views/Marketplace";
 
 const Login = lazy(() => import("./Pages/Login/views/Login"));
 const Home = lazy(() => import("./Pages/Home/Home"));
@@ -27,9 +28,9 @@ const App = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem('TOKEN');
+    const token = localStorage.getItem("TOKEN");
     if (!token) {
-      navigate('/login');
+      navigate("/login");
     }
   }, [navigate]);
 
@@ -44,18 +45,17 @@ const App = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/test" element={<Test />} />
             <Route path="/capsule-creation" element={<CapsuleCreationForm />} />
-            <Route path="*" element={
-              <ProtectedComponent />
-            } />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="*" element={<ProtectedComponent />} />
           </Routes>
         </Suspense>
       </Fragment>
     </DarkModeProvider>
   );
-}
+};
 
 export default App;
 
 const ProtectedComponent = () => {
   return <div>N-ai voie</div>;
-}
+};
