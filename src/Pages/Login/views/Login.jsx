@@ -22,7 +22,7 @@ export default function Login() {
     const formData = new FormData(formRef.current);  // Use the form ref to get form data
 
     try {
-      const { data } = await api.post("user/login", {
+      const { data } = await api.post("login/", {
         username: formData.get('email'),  // Assuming 'email' field is used as the 'username'
         password: formData.get('password')
       });
