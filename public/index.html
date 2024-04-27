@@ -10,6 +10,33 @@
   <link rel="apple-touch-icon" sizes="76x76" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
+  <style>
+    @keyframes pulse {
+      0% {
+        opacity: 0.2;
+        transform: scale(0.9);
+        /* Start smaller */
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1);
+        /* Normal size */
+      }
+
+      100% {
+        opacity: 0.2;
+        transform: scale(0.9);
+        /* Return to smaller size */
+      }
+    }
+
+    .pulsating-text {
+      animation: pulse 1s infinite;
+      /* Adjust the duration of the pulse animation */
+    }
+  </style>
+
 
   <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
