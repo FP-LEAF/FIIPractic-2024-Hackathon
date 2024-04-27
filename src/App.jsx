@@ -7,12 +7,14 @@ import CapsuleCreationForm from "./Pages/CreateCapsule/views/CapsuleCreation";
 import Marketplace from "./Pages/Marketplace/views/Marketplace";
 import Treasurehunt from "./Pages/Treasurehunt/views/Treasurehunt";
 // import { Bundle } from "./Pages/Bundle/Bundle";
+import Auction from "./Pages/Auction/Marketplace/views/Auction";
 
 const Login = lazy(() => import("./Pages/Login/views/Login"));
 const Home = lazy(() => import("./Pages/Home/views/Landing"));
 const Profile = lazy(() => import("./Pages/Profile/views/Profile"));
 const Test = lazy(() => import("./Pages/Test/Test"));
 const Pricing = lazy(() => import("./Pages/Pricing/Pricing"));
+const Capsule = lazy(() => import("./Pages/Capsule/Capsule"));
 const BundleCreation = lazy(() => import("./Pages/Bundle/BundleCreation"));
 const Bundle = lazy(() => import("./Pages/Bundle/Bundle"));
 
@@ -55,6 +57,8 @@ const App = () => {
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/treasurehunt" element={<Treasurehunt />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/auction" element={<Auction />} />
+            <Route path="/capsule" element={<Capsule />} />
             <Route path="*" element={<ProtectedComponent />} />
           </Routes>
         </Suspense>
