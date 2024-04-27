@@ -1,11 +1,23 @@
-import { Avatar, Dropdown, Navbar } from "flowbite-react";
+import React, { useState } from 'react';
+import { Avatar } from 'flowbite-react';
 
-export const CapsuleCard = ({ userInfo, capsuleInfo }) => {
-    console.log(capsuleInfo)
+import { Button, Popover } from "flowbite-react";
+import { CapsuleCard } from './CapsuleCard';
+import { CapsuleCardModal } from './CapsuleCardModal';
+
+export const BundleCard = ({ userInfo, bundleInfo }) => {
+    const [expandedInfoIndex, setExpandedInfoIndex] = useState(null);
+
+    const handleToggleExpand = (index) => {
+        setExpandedInfoIndex((prevIndex) => (prevIndex === index ? null : index));
+    };
+
+    const [bundleCapsules, setBundleCapsules] = useState([])
+
     return (
         <div className="mt-10">
             <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                <div className="absolute inset-x-0 top-0  hidden overflow-hidden md:flex md:inset-y-0">
+                <div className="absolute inset-x-0 top-0 hidden overflow-hidden md:flex md:inset-y-0">
                     <svg
                         viewBox="0 0 88 88"
                         className="w-full max-w-screen-xl text-indigo-100"
@@ -42,7 +54,7 @@ export const CapsuleCard = ({ userInfo, capsuleInfo }) => {
                     </svg>
                 </div>
                 <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                    {capsuleInfo.map((info, index) => (
+                    {bundleInfo.map((info, index) => (
                         <div
                             key={index}
                             className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl"
@@ -50,20 +62,15 @@ export const CapsuleCard = ({ userInfo, capsuleInfo }) => {
                             <div className="p-5">
                                 <div className="flex justify-between">
                                     <div className="flex items-center">
-
                                         <Avatar
                                             alt="User settings"
                                             img={userInfo.img}
                                             className="p-2"
                                             rounded
-                                            size="md" // Adjust size to make the photo bigger
+                                            size="md"
                                         />
-
                                         <span>{userInfo.name}</span>
-
                                     </div>
-
-
                                     {info.visibility === 'private' ? <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z" />
                                     </svg>
@@ -81,19 +88,27 @@ export const CapsuleCard = ({ userInfo, capsuleInfo }) => {
                                     </svg> : <svg class="w-6 h-6 text-gray-800 dark:text-white" style={{ color: "red" }} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
                                     </svg>}
-
                                 </div>
-
                                 <p className="mb-2 font-bold">{info.title}</p>
                                 <p className="text-sm leading-5 text-gray-900">
                                     {info.description}
                                 </p>
+                                <div className="mt-auto">
+                                    <Popover content={(<CapsuleCardModal userInfo={userInfo} capsuleInfo={info.capsules}></CapsuleCardModal>)} placement="bottom">
+                                        <Button className="font-normal text-pink-500"
+                                            onClick={() => { handleToggleExpand(index); }}>My capsules</Button>
+                                    </Popover>
+                                </div>
+
                             </div>
-                            <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
+
                         </div>
                     ))}
+
                 </div>
+
             </div>
+
         </div>
     );
 };

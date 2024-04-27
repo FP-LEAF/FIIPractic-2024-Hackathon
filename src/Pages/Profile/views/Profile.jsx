@@ -6,6 +6,7 @@ import Footer from "../components/Footer.jsx";
 import { useEffect } from 'react';
 import api from '../../../api.js'
 import { CapsuleCard } from "../components/CapsuleCard.jsx";
+import { BundleCard } from "../components/BundleCard.jsx";
 
 
 export default function Profile() {
@@ -13,6 +14,7 @@ export default function Profile() {
   let [shouldUpdate, setShouldUpdate] = useState(0)
   let [userInfo, setUserInfo] = useState({})
   let [expandCapsules, setexpandCapsules] = useState(false)
+  let [expandBundles, setexpandBundles] = useState(false)
 
   function decodeToken(token) {
     var base64Url = token.split(".")[1];
@@ -114,8 +116,8 @@ export default function Profile() {
                         className="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
                         type="button"
                         style={{ transition: "all .15s ease" }}
+                        onClick={() => { }}
                       >
-                        Maybe altceva
                       </button>
                     </div>
                   </div>
@@ -143,7 +145,7 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="text-center mt-12">
-                  <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
+                  <h3 className="text-4xl font-semibold leading-normal text-gray-800 mb-2">
                     {userInfo.name}
                   </h3>
                   <div className="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
@@ -165,35 +167,61 @@ export default function Profile() {
                       <p className="mb-4 text-lg leading-relaxed text-gray-800">
                         {userInfo.quote}
                       </p>
-                      <div className="flex justify-center">
-                        <a
-                          href="#pablo"
-                          className="font-normal text-pink-500"
-                          onClick={e => setexpandCapsules(!expandCapsules)}
-                        >
-                          My Capsules
+                      <div className="flex justify-center cursor-pointer">
+                        <div className="flex ml-2">
+                          <a
+                            className="font-normal text-pink-500"
+                            onClick={e => setexpandCapsules(!expandCapsules)}
+                          >
+                            My Capsules
 
-                        </a>
+                          </a>
 
-                        <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={expandCapsules ? "m19 9-7 7-7-7" : "m5 15 7-7 7 7"} />
-                        </svg>
+                          <svg class="w-6 h-6 text-gray-800 dark:text-white" onClick={e => setexpandCapsules(!expandCapsules)} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={expandCapsules ? "m19 9-7 7-7-7" : "m5 15 7-7 7 7"} />
+                          </svg>
 
+                        </div>
 
+                        <div className="flex ml-2">
+                          <a
+                            className="font-normal text-pink-500"
+                            onClick={e => setexpandBundles(!expandBundles)}
+                          >
+                            My Bundles
+                          </a>
 
+                          <svg class="w-6 h-6 text-gray-800 dark:text-white" onClick={e => setexpandBundles(!expandBundles)} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={expandBundles ? "m19 9-7 7-7-7" : "m5 15 7-7 7 7"} />
+                          </svg>
+                        </div>
                       </div>
-
-
-
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {expandCapsules && (
-            <CapsuleCard />
-          )}
+          <div className="container mx-auto px-4">
+            {expandCapsules && (
+              <>
+                <div className="text-center">
+                  <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">My <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">Capsules</mark></h1>
+
+                  <CapsuleCard userInfo={userInfo} capsuleInfo={userInfo.capsules} />
+                </div>
+              </>
+            )}
+
+            {expandBundles && (
+              <>
+                <div className="text-center">
+                  <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">My <mark class="px-2 text-white bg-pink-500 rounded dark:bg-blue-500">Bundles</mark></h1>
+                  <BundleCard userInfo={userInfo} bundleInfo={userInfo.bundles} />
+                </div>
+              </>
+            )}
+          </div>
         </section>
       </main>)}
     </>
