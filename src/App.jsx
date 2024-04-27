@@ -6,6 +6,7 @@ import { DarkModeProvider } from "./Components/DarkMode/DarkModeProvider";
 import CapsuleCreationForm from "./Pages/CreateCapsule/views/CapsuleCreation";
 import Marketplace from "./Pages/Marketplace/views/Marketplace";
 import Treasurehunt from "./Pages/Treasurehunt/views/Treasurehunt";
+import Auction from "./Pages/Auction/Marketplace/views/Auction";
 
 const Login = lazy(() => import("./Pages/Login/views/Login"));
 const Home = lazy(() => import("./Pages/Home/views/Landing"));
@@ -50,6 +51,7 @@ const App = () => {
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/treasurehunt" element={<Treasurehunt />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/auction" element={<Auction />} />
             <Route path="*" element={<ProtectedComponent />} />
           </Routes>
         </Suspense>
