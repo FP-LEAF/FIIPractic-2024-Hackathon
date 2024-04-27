@@ -42,7 +42,6 @@ export default function Profile() {
       let { data } = await api.get(`user/userInfo?uuid=${userTokenInfo.uuid}`)
 
       if (data) {
-        console.log(data)
         setUserInfo(data)
       }
     }
@@ -50,14 +49,14 @@ export default function Profile() {
     fetchData()
 
 
-  }, [shouldUpdate])
+  }, [])
 
 
 
   return (
     <>
       <Navbar transparent />
-      <main className="profile-page">
+      {userInfo && (<main className="profile-page">
         <section className="relative block" style={{ height: "500px" }}>
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
@@ -113,7 +112,7 @@ export default function Profile() {
                         type="button"
                         style={{ transition: "all .15s ease" }}
                       >
-                        Connect
+                        Maybe altceva
                       </button>
                     </div>
                   </div>
@@ -121,40 +120,40 @@ export default function Profile() {
                     <div className="flex justify-center py-4 lg:pt-4 pt-8">
                       <div className="mr-4 p-3 text-center">
                         <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">
-                          22
+                          {userInfo.friends}
                         </span>
                         <span className="text-sm text-gray-500">Friends</span>
                       </div>
-                      <div className="mr-4 p-3 text-center">
+                      <div className="lg:mr-4 p-3 text-center">
                         <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">
-                          10
+                          {userInfo.comments}
                         </span>
-                        <span className="text-sm text-gray-500">Photos</span>
+                        <span className="text-sm text-gray-500">Comments</span>
                       </div>
                       <div className="lg:mr-4 p-3 text-center">
                         <span className="text-xl font-bold block uppercase tracking-wide text-gray-700">
-                          89
+                          {userInfo.nrOfCapsules}
                         </span>
-                        <span className="text-sm text-gray-500">Comments</span>
+                        <span className="text-sm text-gray-500">Capsules</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="text-center mt-12">
                   <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
-                    {userInfo.name.firstName + ' ' + userInfo.name.lastName}
+                    {userInfo.name}
                   </h3>
                   <div className="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
                     <i className="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>{" "}
-                    Los Angeles, California
+                    {userInfo.country}
                   </div>
                   <div className="mb-2 text-gray-700 mt-10">
                     <i className="fas fa-briefcase mr-2 text-lg text-gray-500"></i>
-                    Solution Manager - Creative Tim Officer
+                    {userInfo.job}
                   </div>
                   <div className="mb-2 text-gray-700">
                     <i className="fas fa-university mr-2 text-lg text-gray-500"></i>
-                    University of Computer Science
+                    {userInfo.study}
                   </div>
                 </div>
                 <div className="mt-10 py-10 border-t border-gray-300 text-center">
@@ -177,7 +176,7 @@ export default function Profile() {
             </div>
           </div>
         </section>
-      </main>
+      </main>)}
       <Footer />
     </>
   );
