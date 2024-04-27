@@ -5,12 +5,14 @@ import Footer from "../components/Footer.jsx";
 
 import { useEffect } from 'react';
 import api from '../../../api.js'
+import { CapsuleCard } from "../components/CapsuleCard.jsx";
 
 
 export default function Profile() {
 
   let [shouldUpdate, setShouldUpdate] = useState(0)
   let [userInfo, setUserInfo] = useState({})
+  let [expandCapsules, setexpandCapsules] = useState(false)
 
   function decodeToken(token) {
     var base64Url = token.split(".")[1];
@@ -42,6 +44,7 @@ export default function Profile() {
       let { data } = await api.get(`user/userInfo?uuid=${userTokenInfo.uuid}`)
 
       if (data) {
+        console.log(data)
         setUserInfo(data)
       }
     }
@@ -157,27 +160,42 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="mt-10 py-10 border-t border-gray-300 text-center">
-                  <div className="flex flex-wrap justify-center">
+                  <div className="flex justify-center">
                     <div className="w-full lg:w-9/12 px-4">
                       <p className="mb-4 text-lg leading-relaxed text-gray-800">
                         {userInfo.quote}
                       </p>
-                      <a
-                        href="#pablo"
-                        className="font-normal text-pink-500"
-                        onClick={e => e.preventDefault()}
-                      >
-                        Show more
-                      </a>
+                      <div className="flex justify-center">
+                        <a
+                          href="#pablo"
+                          className="font-normal text-pink-500"
+                          onClick={e => setexpandCapsules(!expandCapsules)}
+                        >
+                          My Capsules
+
+                        </a>
+
+                        <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={expandCapsules ? "m19 9-7 7-7-7" : "m5 15 7-7 7 7"} />
+                        </svg>
+
+
+
+                      </div>
+
+
+
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          {expandCapsules && (
+            <CapsuleCard />
+          )}
         </section>
       </main>)}
-      <Footer />
     </>
   );
 }
