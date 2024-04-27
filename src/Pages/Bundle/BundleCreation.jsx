@@ -66,20 +66,36 @@ const BundleCreation = () => {
                   {entries.map((entry, index) => (
                     <div key={index}>
                       <div className="grid grid-cols-4 gap-4">
-                        {" "}
-                        {/* Use Flexbox to make children inline */}
-                        <TextInput
-                          className="col-span-3"
-                          onChange={(text) => handleChange(index, "name", text)}
-                          placeholder="Name"
-                        />
-                        <Button
-                          pill
-                          className="col-span-1"
-                          onClick={() => handleRemoveEntry(index)}
-                        >
-                          Remove
-                        </Button>
+                        {/* Row 1: TextInput (3 columns) and Button (1 column) */}
+                        <div className="col-span-3 flex items-center">
+                          {" "}
+                          {/* Flexbox to make TextInput and Button inline */}
+                          <TextInput
+                            onChange={(text) =>
+                              handleChange(index, "name", text)
+                            }
+                            placeholder="Name"
+                          />
+                        </div>
+                        <div className="col-span-1">
+                          <Button pill onClick={() => handleRemoveEntry(index)}>
+                            Remove
+                          </Button>
+                        </div>
+
+                        {/* Row 2: Datepicker and Timepicker */}
+                        <div className="col-span-2">
+                          <div className="mb-4">
+                            <Label htmlFor="endDate" value="End date" />
+                            <Datepicker id="endDate" className="mt-1" />
+                          </div>
+                        </div>
+                        <div className="col-span-2">
+                          <div className="mb-4">
+                            <Label htmlFor="selectTime" value="Select time" />
+                            <Timepicker id="selectTime" className="mt-1" />
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ))}
