@@ -68,22 +68,22 @@ export default function Footer() {
                   <ul className="list-unstyled">
                     <li>
                       <a className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                         href="https://www.creative-tim.com/presentation">About Us
+                        href="https://www.creative-tim.com/presentation">About Us
                       </a>
                     </li>
                     <li>
                       <a className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                         href="https://blog.creative-tim.com">Blog
+                        href="https://blog.creative-tim.com">Blog
                       </a>
                     </li>
                     <li>
                       <a className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                         href="https://www.github.com/creativetimofficial">Github
+                        href="https://www.github.com/creativetimofficial">Github
                       </a>
                     </li>
                     <li>
                       <a className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                         href="https://www.creative-tim.com/bootstrap-themes/free">Free Products
+                        href="https://www.creative-tim.com/bootstrap-themes/free">Free Products
                       </a>
                     </li>
 
@@ -96,22 +96,22 @@ export default function Footer() {
                   <ul className="list-unstyled">
                     <li>
                       <a className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                      href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md">MIT License
-                    </a>
-                    </li>
-                    <li>
-                      <a className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                         href="https://creative-tim.com/terms">Terms & Conditions
+                        href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md">MIT License
                       </a>
                     </li>
                     <li>
                       <a className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                         href="https://creative-tim.com/privacy">Privacy Policy
+                        href="https://creative-tim.com/terms">Terms & Conditions
                       </a>
                     </li>
                     <li>
                       <a className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                         href="https://creative-tim.com/contact-us">Contact Us
+                        href="https://creative-tim.com/privacy">Privacy Policy
+                      </a>
+                    </li>
+                    <li>
+                      <a className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                        href="https://creative-tim.com/contact-us">Contact Us
                       </a>
                     </li>
                   </ul>
