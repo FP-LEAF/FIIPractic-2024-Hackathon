@@ -5,9 +5,10 @@ import Loader from "react-loaders";
 import { DarkModeProvider } from "./Components/DarkMode/DarkModeProvider";
 
 const Login = lazy(() => import("./Pages/Login/views/Login"));
-const Home = lazy(() => import("./Pages/Home/Home"));
+const Home = lazy(() => import("./Pages/Home/views/Landing"));
 const Profile = lazy(() => import("./Pages/Profile/views/Profile"));
 const Test = lazy(() => import("./Pages/Test/Test"));
+const Pricing = lazy(() => import("./Pages/Pricing/Pricing"));
 
 const Fallback = (
   <div className="loader-container">
@@ -42,6 +43,7 @@ const App = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="*" element={
               <ProtectedComponent />
             } />
