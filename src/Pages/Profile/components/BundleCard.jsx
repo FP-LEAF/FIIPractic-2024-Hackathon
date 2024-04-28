@@ -17,7 +17,7 @@ export const BundleCard = ({ userInfo, bundleInfo }) => {
     return (
         <div className="mt-10">
             <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                <div className="absolute inset-x-0 top-0 hidden overflow-hidden md:flex md:inset-y-0">
+                <div className="absolute inset-x-0 top-0  hidden overflow-hidden md:flex md:inset-y-0">
                     <svg
                         viewBox="0 0 88 88"
                         className="w-full max-w-screen-xl text-indigo-100"
@@ -61,7 +61,7 @@ export const BundleCard = ({ userInfo, bundleInfo }) => {
                         >
                             <div className="p-5">
                                 <div className="flex justify-between">
-                                    <div className="flex items-center">
+                                    <div className="flex-1">
                                         <Avatar
                                             alt="User settings"
                                             img={userInfo.img}
