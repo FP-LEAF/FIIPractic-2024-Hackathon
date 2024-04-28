@@ -8,6 +8,8 @@ import { useNavigate } from "react-router";
 import { ModalComp } from "../components/ModalComp.jsx";
 import { Button } from "flowbite-react";
 
+import { FaCoins } from "react-icons/fa";
+
 export default function Profile() {
   let [userInfo, setUserInfo] = useState({})
   let [expandCapsules, setexpandCapsules] = useState(false)
@@ -104,9 +106,12 @@ export default function Profile() {
                     <div className="py-6 px-3 mt-32 sm:mt-0">
 
 
-                      <div className="flex flex-wrap gap-4">
+                      <div className="flex flex-wrap gap-20 justify-center items-center">
                         <Button onClick={toggleModal}>Tree Structure</Button>
-
+                        <div className="flex gap-5 items-center">
+                          <FaCoins />
+                          <span>{parseInt(userInfo.unblocked_coins) + parseInt(userInfo.blocked_coins)}</span>
+                        </div>
                         {openModal && <ModalComp onClose={toggleModal}></ModalComp>}
                       </div>
                     </div>
