@@ -13,7 +13,6 @@ import Treasurehunt from "./Pages/Treasurehunt/views/Treasurehunt";
 import Auction from "./Pages/Auction/Marketplace/views/Auction";
 import CommentSection from "./Pages/Feed/components/CommentSection";
 
-
 const Login = lazy(() => import("./Pages/Login/views/Login"));
 const Home = lazy(() => import("./Pages/Home/views/Landing"));
 const Profile = lazy(() => import("./Pages/Profile/views/Profile"));
@@ -22,6 +21,9 @@ const Pricing = lazy(() => import("./Pages/Pricing/Pricing"));
 const Capsule = lazy(() => import("./Pages/Capsule/Capsule"));
 const BundleCreation = lazy(() => import("./Pages/Bundle/BundleCreation"));
 const Bundle = lazy(() => import("./Pages/Bundle/Bundle"));
+const Feed = lazy(() => import("./Pages/Feed/views/Feed"));
+const LiveOppening = lazy(() => import("./Pages/LiveOppening/LiveOppening"));
+const Event = lazy(() => import("./Pages/Event/Event"));
 const Feed = lazy(() => import("./Pages/Feed/views/Feed"));
 
 const Fallback = (
@@ -65,12 +67,9 @@ const App = () => {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/auction" element={<Auction />} />
             <Route path="/capsule" element={<Capsule />} />
-
             <Route path="/feed" element={<Feed />} />
-            <Route path="/tree" element={<TreeStructure />} />
-            <Route path="*" element={
-              <ProtectedComponent />
-            } />
+            <Route path="/live-oppening" element={<LiveOppening />} />
+            <Route path="/event" element={<Event />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="*" element={<ProtectedComponent />} />
           </Routes>
