@@ -15,33 +15,37 @@ import Timepicker from "../../../Components/Timepicker.jsx";
 import Footer from "../../Home/components/Footer";
 import Navbar from "../../Home/components/Navbar";
 import { useState, useRef } from "react";
+import imageSrc1 from "../../Marketplace/components/ICON_LOVE.png";
+import imageSrc2 from "../../Marketplace/components/ICON_MUZICA.png";
+import imageSrc3 from "../../Marketplace/components/ICON_STUDENT.png";
+import { useNavigate } from "react-router-dom";
 
 export function CapsuleCreation() {
   const [isOrganizationSelected, setIsOrganizationSelected] = useState(false);
-
+  const navigate = useNavigate();
   const handleRadioChange = (event) => {
     setIsOrganizationSelected(event.target.value === "Organization");
   };
 
-  const [selectedTheme, setSelectedTheme] = useState(null);
+  const [selectedThemeId, setSelectedThemeId] = useState(null);
 
   const themes = [
     {
       name: "Love",
-      image: "https://source.unsplash.com/random/400x400?love", // Random image from Unsplash API
+      image: imageSrc1, // Random image from Unsplash API
     },
     {
-      name: "Dark",
-      image: "https://source.unsplash.com/random/400x400?dark", // Random image from Unsplash API
+      name: "Music",
+      image: imageSrc2, // Random image from Unsplash API
     },
     {
-      name: "Light",
-      image: "https://source.unsplash.com/random/400x400?light", // Random image from Unsplash API
+      name: "Education",
+      image: imageSrc3, // Random image from Unsplash API
     },
   ];
 
-  const handleThemeSelect = (theme) => {
-    setSelectedTheme(theme);
+  const handleThemeSelect = (theme, index) => {
+    setSelectedThemeId(index);
     // Perform any additional actions with the selected theme
   };
 
@@ -146,9 +150,9 @@ export function CapsuleCreation() {
                 <li
                   key={index}
                   className={`py-4 flex items-center justify-between hover:bg-gray-100 cursor-pointer ${
-                    selectedTheme === theme ? "bg-indigo-100" : ""
+                    selectedThemeId === index ? "bg-indigo-100" : ""
                   }`}
-                  onClick={() => handleThemeSelect(theme)}
+                  onClick={() => handleThemeSelect(theme, index)}
                 >
                   <div className="flex items-center">
                     <img
@@ -158,7 +162,7 @@ export function CapsuleCreation() {
                     />
                     <span className="text-lg font-semibold">{theme.name}</span>
                   </div>
-                  {selectedTheme === theme && (
+                  {selectedThemeId === index && (
                     <span className="text-indigo-600">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -185,7 +189,9 @@ export function CapsuleCreation() {
             <Checkbox id="remember" />
             <Label htmlFor="remember">Terms & Conditions</Label>
           </div>
-          <Button type="submit">Create Capsule</Button>
+          <Button type="submit" onClick={() => navigate("/capsule")}>
+            Create Capsule
+          </Button>
         </div>
         <Footer></Footer>
       </div>
