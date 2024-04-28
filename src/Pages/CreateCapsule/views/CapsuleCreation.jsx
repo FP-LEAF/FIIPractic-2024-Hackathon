@@ -9,7 +9,10 @@ import {
   FileInput,
   Checkbox,
   Button,
+  Datepicker,
 } from "flowbite-react";
+import Timepicker from "../../../Components/Timepicker.jsx";
+
 import { useState, useRef } from "react";
 
 export function CapsuleCreation() {
@@ -108,6 +111,15 @@ export function CapsuleCreation() {
           id="file"
           helperText="Accepted file formats: .jpg, .png, .mp3, .mp4"
         />
+      </div>
+
+      <div className="mb-4">
+        <Label htmlFor="endDate" value="End date" />
+        <Datepicker id="endDate" className="mt-1" />
+      </div>
+      <div className="mb-4">
+        <Label htmlFor="selectTime" value="End date time" />
+        <Timepicker id="selectTime" className="mt-1" />
       </div>
 
       <div className="max-w-md mx-auto mt-8">
