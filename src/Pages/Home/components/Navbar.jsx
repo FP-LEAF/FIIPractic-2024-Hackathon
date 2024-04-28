@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import NotificationsDropdown from "./NotificationDropdown";
 
+import logoImage from "../assets/img/logo.png"; // Import your logo image here
+
+
 const Navbar = (props) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
@@ -23,7 +26,11 @@ const Navbar = (props) => {
               }
               href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/presentation"
             >
-              LEAF - HACKATHON
+              <img
+                src={logoImage} // Use your logo image source here
+                alt="Logo"
+                className="h-14"
+              />
             </h1>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
