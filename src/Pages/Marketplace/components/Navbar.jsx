@@ -1,6 +1,8 @@
 import React from "react";
 
-export function Navbar(props) {
+import { Avatar, Dropdown, Navbar } from "flowbite-react";
+
+export default function NavbarOriginal(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
@@ -56,7 +58,7 @@ export function Navbar(props) {
                 >
                   <svg
                     className="w-6 h-6 text-gray-800 dark:text-white"
-                    style={{ color: "whitesmoke" }}
+                    style={{ color: props.color }}
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -142,17 +144,35 @@ export function Navbar(props) {
               </li>
 
               <li className="flex items-center">
-                <button
-                  className={
-                    (props.transparent
-                      ? "bg-white text-gray-800 active:bg-gray-100"
-                      : "bg-pink-500 text-white active:bg-pink-600") +
-                    " text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                  }
-                  type="button"
-                  style={{ transition: "all .15s ease" }}
-                >
-                  <i className="fas fa-arrow-alt-circle-down"></i> Download
+                <button type="button" style={{ transition: "all .15s ease" }}>
+                  <div className="flex md:order-2">
+                    <Dropdown
+                      arrowIcon={false}
+                      inline
+                      label={
+                        <Avatar
+                          alt="User settings"
+                          img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                          rounded
+                          size="md"
+                          bordered
+                          color="light" // Adjust size to make the photo bigger
+                        />
+                      }
+                    >
+                      <Dropdown.Header>
+                        <span className="block text-sm">Bonnie Green</span>
+                        <span className="block truncate text-sm font-medium">
+                          name@flowbite.com
+                        </span>
+                      </Dropdown.Header>
+                      <Dropdown.Item>Dashboard</Dropdown.Item>
+                      <Dropdown.Item>Settings</Dropdown.Item>
+                      <Dropdown.Item>Earnings</Dropdown.Item>
+                      <Dropdown.Divider />
+                      <Dropdown.Item>Sign out</Dropdown.Item>
+                    </Dropdown>
+                  </div>
                 </button>
               </li>
             </ul>
