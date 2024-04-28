@@ -70,6 +70,7 @@ const App = () => {
             <Route path="*" element={
               <ProtectedComponent />
             } />
+            <Route path="/feed" element={<Feed />} />
             <Route path="*" element={<ProtectedComponent />} />
           </Routes>
         </Suspense>
