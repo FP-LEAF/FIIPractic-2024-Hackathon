@@ -16,7 +16,6 @@ const Profile = lazy(() => import("./Pages/Profile/views/Profile"));
 const Test = lazy(() => import("./Pages/Test/Test"));
 const Pricing = lazy(() => import("./Pages/Pricing/Pricing"));
 const Capsule = lazy(() => import("./Pages/Capsule/Capsule"));
-const Feed = lazy(() => import("./Pages/Feed/views/Feed"));
 const BundleCreation = lazy(() => import("./Pages/Bundle/BundleCreation"));
 const Bundle = lazy(() => import("./Pages/Bundle/Bundle"));
 

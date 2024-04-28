@@ -57,6 +57,7 @@ function MarketCapsuleCard() {
             <p className="text-sm font-medium leading-4 text-gray-600">
               Author
             </p>
+            <h1 className="font-bold text-green-600 text-4xl">300$</h1>
           </div>
         </div>
       </div>
