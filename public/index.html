@@ -35,8 +35,122 @@
       animation: pulse 1s infinite;
       /* Adjust the duration of the pulse animation */
     }
-  </style>
 
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-5px) rotate(-5deg);
+      }
+
+      50% {
+        transform: translateX(5px) rotate(5deg);
+      }
+
+      75% {
+        transform: translateX(-5px) rotate(-5deg);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .shake {
+      animation: shake 0.5s infinite;
+    }
+
+    .smoke {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      animation: smoke 3s infinite linear;
+    }
+
+    .smoke::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+    }
+
+    @keyframes smoke {
+      0% {
+        transform: translateY(0) translateX(-50%) scale(0.5);
+        opacity: 0;
+      }
+
+      25% {
+        transform: translateY(-20px) translateX(-50%) scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateY(-40px) translateX(-50%) scale(1.5);
+        opacity: 0.8;
+      }
+
+      75% {
+        transform: translateY(-60px) translateX(-50%) scale(2);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translateY(-80px) translateX(-50%) scale(2.5);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      /* So that the particles don't interfere with mouse events on the image */
+    }
+
+    .particle {
+      position: absolute;
+      background-color: #000;
+      /* Change this to whatever color you want */
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      animation: float 5s infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
 
   <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -45,6 +159,133 @@
     } else {
       document.documentElement.classList.remove('dark')
     }
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const smokeDivs = document.querySelectorAll('.smoke');
+      smokeDivs.forEach(function (smokeDiv) {
+        // Calculate random top and left positions
+        const topPosition = Math.floor(Math.random() * 100) + 'px';
+        const leftPosition = Math.floor(Math.random() * 100) + 'px';
+        // Apply random positions
+        smokeDiv.style.top = topPosition;
+        smokeDiv.style.left = leftPosition;
+      });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
   </script>
 
 </head>
@@ -62,6 +303,8 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+
 </body>
 
 </html>

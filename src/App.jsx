@@ -17,6 +17,8 @@ const Pricing = lazy(() => import("./Pages/Pricing/Pricing"));
 const Capsule = lazy(() => import("./Pages/Capsule/Capsule"));
 const BundleCreation = lazy(() => import("./Pages/Bundle/BundleCreation"));
 const Bundle = lazy(() => import("./Pages/Bundle/Bundle"));
+const Feed = lazy(() => import("./Pages/Feed/views/Feed"));
+const LiveOppening = lazy(() => import("./Pages/LiveOppening/LiveOppening"));
 
 const Fallback = (
   <div className="loader-container">
@@ -59,6 +61,8 @@ const App = () => {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/auction" element={<Auction />} />
             <Route path="/capsule" element={<Capsule />} />
+            <Route path="/feed" element={<Feed />} />
+            <Route path="/live-oppening" element={<LiveOppening />} />
             <Route path="*" element={<ProtectedComponent />} />
           </Routes>
         </Suspense>
