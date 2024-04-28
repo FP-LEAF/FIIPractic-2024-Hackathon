@@ -157,6 +157,13 @@ const Event = () => {
               style={{ backgroundImage: `url('${button}')` }}
             ></div>
           </div>
+          <button className="flex items-center justify-center bg-blue-500 rounded-md py-2 px-4">
+            <span
+              className="bg-cover bg-center w-6 h-6 mr-2"
+              style={{ backgroundImage: `url('${button}')` }}
+            ></span>
+            Click me!
+          </button>
           <Tabs className="flex jus" aria-label="Default tabs" style="default">
             <Tabs.Item active title="All" icon={HiUserCircle}>
               <div className="flex justify-around items-center mt-20 mb-20 flex-wrap	">
