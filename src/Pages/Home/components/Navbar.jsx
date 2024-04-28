@@ -3,6 +3,7 @@ import NotificationsDropdown from "./NotificationDropdown";
 
 import logoImage from "../assets/img/logo.png"; // Import your logo image here
 
+import { FaCoins } from "react-icons/fa";
 
 const Navbar = (props) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -240,6 +241,12 @@ const Navbar = (props) => {
                     </svg>
                     Profile
                   </a>
+                </li>
+                <li>
+                  <div className="border-4 p-1 rounded-lg border-r-4 mx-2 flex gap-5 items-center">
+                    <FaCoins />
+                    <span>{parseInt(1000) + parseInt(556)}</span>
+                  </div>
                 </li>
               </li>
             </ul>
