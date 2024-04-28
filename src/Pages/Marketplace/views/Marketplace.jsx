@@ -1,202 +1,122 @@
-import React from "react";
-import { CapsuleCard } from "../../Profile/components/CapsuleCard";
-import { Footer } from "../components/Footer";
-import { Navbar } from "../components/Navbar";
+import React, { useState } from "react";
+import MarketCapsuleCard from "../components/MarketCapsuleCard";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-const Marketplace = () => {
-  const capsules = [
+function Marketplace() {
+  // Dummy product data, you can replace this with actual data from your backend or API
+  const products = [
     {
       id: 1,
-      name: "Football Sports Capsule",
-      description:
-        "Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      category: "Sports",
-      subcategory: "Football",
+      name: "Product 1",
+      imageUrl: "https://via.placeholder.com/150",
+      price: 10,
     },
     {
       id: 2,
-      name: "Bowling Sports Capsule",
-      description:
-        "Disrupt inspire and think tank, social entrepreneur but preliminary thinking think tank compelling.",
-      category: "Sports",
-      subcategory: "Bowling",
+      name: "Product 2",
+      imageUrl: "https://via.placeholder.com/150",
+      price: 20,
     },
     {
       id: 3,
-      name: "Cycling Sports Capsule",
-      description:
-        "A slice of heaven. O for awesome, this chocka full cuzzie is as rip-off as a cracker.",
-      category: "Sports",
-      subcategory: "Cycling",
+      name: "Product 3",
+      imageUrl: "https://via.placeholder.com/150",
+      price: 15,
     },
     {
       id: 4,
-      name: "Weight Lifting Sports Capsule",
-      description:
-        "Meanwhile, in behind the bicycle shed, Hercules Morse, as big as a horse.",
-      category: "Sports",
-      subcategory: "Weight Lifting",
+      name: "Product 4",
+      imageUrl: "https://via.placeholder.com/150",
+      price: 25,
     },
     {
       id: 5,
-      name: "Golf Sports Capsule",
-      description:
-        "Disrupt inspire and think tank, social entrepreneur but preliminary thinking think tank compelling.",
-      category: "Sports",
-      subcategory: "Golf",
+      name: "Product 5",
+      imageUrl: "https://via.placeholder.com/150",
+      price: 18,
     },
     {
       id: 6,
-      name: "Hockey Sports Capsule",
-      description:
-        "A business big enough that it could be listed on the NASDAQ goes belly up.",
-      category: "Sports",
-      subcategory: "Hockey",
+      name: "Product 6",
+      imageUrl: "https://via.placeholder.com/150",
+      price: 22,
     },
     {
       id: 7,
-      name: "Shooting Sports Capsule",
-      description:
-        "Lookout flogging bilge rat main sheet bilge water nipper fluke to go on account heave down clap of thunder.",
-      category: "Sports",
-      subcategory: "Shooting",
+      name: "Product 7",
+      imageUrl: "https://via.placeholder.com/150",
+      price: 12,
     },
     {
       id: 8,
-      name: "Martial Arts Capsule",
-      description:
-        "Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.",
-      category: "Sports",
-      subcategory: "Martial Arts",
+      name: "Product 8",
+      imageUrl: "https://via.placeholder.com/150",
+      price: 30,
+    },
+    {
+      id: 9,
+      name: "Product 9",
+      imageUrl: "https://via.placeholder.com/150",
+      price: 28,
+    },
+    {
+      id: 10,
+      name: "Product 10",
+      imageUrl: "https://via.placeholder.com/150",
+      price: 17,
     },
   ];
 
-  const categories = Array.from(
-    new Set(capsules.map((capsule) => capsule.category))
-  );
-  const subcategories = Array.from(
-    new Set(capsules.map((capsule) => capsule.subcategory))
-  );
+  const [maxPrice, setMaxPrice] = useState(null);
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
-  const [filteredCapsules, setFilteredCapsules] = React.useState(capsules);
-  const [selectedCategory, setSelectedCategory] = React.useState("");
-  const [selectedSubcategory, setSelectedSubcategory] = React.useState("");
-  const [orderBy, setOrderBy] = React.useState("");
+  const handlePriceFilter = (event) => {
+    const value = event.target.value;
+    setMaxPrice(value);
 
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-    filterCapsules(event.target.value, selectedSubcategory);
-  };
-
-  const handleSubcategoryChange = (event) => {
-    setSelectedSubcategory(event.target.value);
-    filterCapsules(selectedCategory, event.target.value);
-  };
-
-  const handleOrderByChange = (event) => {
-    setOrderBy(event.target.value);
-    orderCapsules(event.target.value);
-  };
-
-  const filterCapsules = (category, subcategory) => {
-    let filtered = capsules;
-    if (category) {
-      filtered = filtered.filter((capsule) => capsule.category === category);
-    }
-    if (subcategory) {
-      filtered = filtered.filter(
-        (capsule) => capsule.subcategory === subcategory
-      );
-    }
-    setFilteredCapsules(filtered);
-  };
-
-  const orderCapsules = (order) => {
-    let ordered = [...filteredCapsules];
-    if (order === "nameAsc") {
-      ordered.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (order === "nameDesc") {
-      ordered.sort((a, b) => b.name.localeCompare(a.name));
-    }
-    setFilteredCapsules(ordered);
+    const filtered = products.filter(
+      (product) => product.price <= value || value === ""
+    );
+    setFilteredProducts(filtered);
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <>
       <Navbar />
-      <div className="container mx-auto py-8">
-        <h1 className="text-4xl font-bold mb-8 text-center">Browse Capsules</h1>
-        <div className="flex justify-between mb-8">
-          <div>
-            <label
-              htmlFor="category"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Category:
-            </label>
-            <select
-              id="category"
-              value={selectedCategory}
-              onChange={handleCategoryChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            >
-              <option value="">All Categories</option>
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
+      <div className="container mx-auto my-4">
+        <div className="mb-4">
+          <label htmlFor="price-filter" className="block font-semibold mb-2">
+            Filter by Price:
+          </label>
+          <input
+            type="range"
+            id="price-filter"
+            min="0"
+            max="30"
+            value={maxPrice || ""}
+            onChange={handlePriceFilter}
+            className="w-full"
+          />
+          <div className="flex justify-between">
+            <span>0</span>
+            <span>30</span>
           </div>
-          <div>
-            <label
-              htmlFor="subcategory"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Subcategory:
-            </label>
-            <select
-              id="subcategory"
-              value={selectedSubcategory}
-              onChange={handleSubcategoryChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            >
-              <option value="">All Subcategories</option>
-              {subcategories.map((subcategory) => (
-                <option key={subcategory} value={subcategory}>
-                  {subcategory}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label
-              htmlFor="orderBy"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Order By:
-            </label>
-            <select
-              id="orderBy"
-              value={orderBy}
-              onChange={handleOrderByChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            >
-              <option value="">Default</option>
-              <option value="nameAsc">Name (A-Z)</option>
-              <option value="nameDesc">Name (Z-A)</option>
-            </select>
-          </div>
-        </div>
-        <div className="">
-          {filteredCapsules.map((capsule) => (
-            <CapsuleCard key={capsule.id} capsuleInfo={capsule} />
-          ))}
         </div>
       </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredProducts.map((product) => (
+          <MarketCapsuleCard
+            key={product.id}
+            imageUrl={product.imageUrl}
+            name={product.name}
+            price={product.price}
+          />
+        ))}
+      </div>
       <Footer />
-    </div>
+    </>
   );
-};
+}
 
 export default Marketplace;
