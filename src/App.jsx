@@ -22,6 +22,7 @@ const Pricing = lazy(() => import("./Pages/Pricing/Pricing"));
 const Capsule = lazy(() => import("./Pages/Capsule/Capsule"));
 const BundleCreation = lazy(() => import("./Pages/Bundle/BundleCreation"));
 const Bundle = lazy(() => import("./Pages/Bundle/Bundle"));
+const Feed = lazy(() => import("./Pages/Feed/views/Feed"));
 
 const Fallback = (
   <div className="loader-container">
