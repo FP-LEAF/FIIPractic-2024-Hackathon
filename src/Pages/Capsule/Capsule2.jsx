@@ -42,11 +42,15 @@ export default function Capsule() {
 
                         <Card className="bg-white border border-gray-700">
                             <p className="font-normal text-gray-700 dark:text-gray-400">
-                                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                                <br /><br />
-                                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                                <br /><br />
-                                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order. Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                                Pe vremea mea, în plină eră comunistă, exista o fabrică mare de produse textile. Fabrica aceasta era faimoasă pentru calitatea produselor sale și pentru noi, muncitorii harnici. Într-o zi, am primit o comandă uriașă de la un stat străin pentru uniforme militare. Era o oportunitate uriașă, dar exista o problemă: fabrica noastră nu avea suficiente materiale pentru a îndeplini comanda.
+                                <br></br>
+                                <br></br>
+                                Eu, fiind un om simplu și muncitor, nu înțelegeam cum să rezolvăm această problemă. Dar directorul nostru, un om inteligent și plin de idei, a venit cu o soluție neașteptată. A organizat o adunare a tuturor muncitorilor și ne-a explicat situația. Apoi a propus să colectăm hainele noastre vechi și să le reciclăm în materiale textile noi pentru uniformele respective.
+                                <br></br>
+                                <br></br>
+                                La început, eram puțin sceptici. Dar directorul ne-a convins că acest lucru ar fi un sacrificiu mic pentru o cauză mare - furnizarea uniformelor necesare pentru apărarea patriei noastre. Așa că, cu toții am adus hainele noastre vechi, iar fabrica a început procesul de reciclare.
+                                <br></br>
+
                             </p>
                         </Card>
                         <div className="flex justify-center">

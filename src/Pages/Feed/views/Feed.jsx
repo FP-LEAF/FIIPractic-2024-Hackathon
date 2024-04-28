@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../Home/components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import FullCapsule from "../components/FullCapsule.jsx";
-import { Tabs } from "flowbite-react";
+import { Card, Tabs, Button } from "flowbite-react";
 import { HiGlobeEuropeAfrica } from "react-icons/hi2";
 import { HiMiniBellAlert } from "react-icons/hi2";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
@@ -93,13 +93,56 @@ export default function Feed() {
                     />
                   </div>
                 </Tabs.Item>
-                <Tabs.Item title="Upcoming Capsules" icon={HiMiniBellAlert}>
 
-                </Tabs.Item>
                 <Tabs.Item title="Events" icon={HiGlobeEuropeAfrica}>
+                  <div className="flex">
+                    <Card className="max-w-sm mr-4">
+                      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        Noteworthy technology acquisitions 2021
+                      </h5>
+                      <p className="font-normal text-gray-700 dark:text-gray-400">
+                        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                      </p>
+                      <Button>
+                        Read more
+                        <svg className="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            fillRule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </Button>
+                    </Card>
 
+                    <Card className="max-w-sm">
+                      <a href="/event"><h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        New Year Resolution
+                      </h5> </a>
+
+                      <p className="font-normal text-gray-700 dark:text-gray-400">
+                        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                      </p>
+                      <Button>
+                        <a href='/event'>Read more</a>
+                        <svg className="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            fillRule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </Button>
+                    </Card>
+                  </div>
                 </Tabs.Item>
               </Tabs>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
             </div>
           </div>
         </section>

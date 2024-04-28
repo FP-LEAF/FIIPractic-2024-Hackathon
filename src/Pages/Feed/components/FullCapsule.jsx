@@ -23,13 +23,15 @@ function FullCapsule(props) {
         <Card className="max-w-lg">
             <div className="flex items-center space-x-4">
                 <div className="shrink-0">
-                    <img
-                        alt="Author image"
-                        src={imageSrc}
-                        className="rounded-full"
-                        width="32"
-                        height="32"
-                    />
+                    <a href='Capsule2'>
+                        <img
+                            alt="Author image"
+                            src={imageSrc}
+                            className="rounded-full"
+                            width="32"
+                            height="32"
+                        />
+                    </a>
                 </div>
                 <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
@@ -43,7 +45,7 @@ function FullCapsule(props) {
             <p className="font-normal text-gray-700 dark:text-gray-400">
                 {contentText}
             </p>
-        
+
             <FeedCapsuleCard
                 category={category}
                 date={date}
@@ -57,7 +59,7 @@ function FullCapsule(props) {
                 description={description}
             />
             <Button>
-                Read more
+                <a href='/Capsule2'>Read more</a>
                 <svg
                     className="-mr-1 ml-2 h-4 w-4"
                     fill="currentColor"
