@@ -11,7 +11,7 @@ const Treasurehunt = () => {
     const randomY = Math.floor(Math.random() * (max - min + 1) + min);
     return { x: randomX, y: randomY };
   };
-  const isSubscribed = false;
+  const [isSubscribed, setSubscription] = useState(false);
   const buttons = [
     { id: 1, label: "Button 1", link: "google.com", X: 0, Y: -1 },
     { id: 2, label: "Button 2", link: "google.com", X: 6, Y: -16 },
@@ -19,6 +19,10 @@ const Treasurehunt = () => {
   ];
 
   const [openModal, setOpenModal] = useState(false);
+
+  const handleSubbscription = () => {
+    setSubscription(true);
+  };
 
   return (
     <>
@@ -64,10 +68,16 @@ const Treasurehunt = () => {
                         <Modal.Body>
                           <div className="space-y-6">
                             <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                              Mergi la stanga si 2 pasi inapoi.
+                              Search carefully around the base of large trees,
+                              behind bushes, and under benches or structures
+                              within the designated 20-meter area.
                             </p>
                             <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                              Vezi sub banca daca e
+                              Scour the ground around the perimeter, inspecting
+                              areas with woodchips, mulch, or tall grass where a
+                              treasure might be concealed. Check underneath
+                              railings, steps, or overhangs for a sign pointing
+                              you in the right direction.
                             </p>
                           </div>
                         </Modal.Body>
@@ -212,6 +222,7 @@ const Treasurehunt = () => {
                             <a
                               href="#"
                               className="block rounded-lg bg-indigo-200 bg-opacity-50 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-300 focus-visible:ring active:bg-indigo-400 md:text-base"
+                              onClick={handleSubbscription}
                             >
                               Get the Pro Bundle
                             </a>

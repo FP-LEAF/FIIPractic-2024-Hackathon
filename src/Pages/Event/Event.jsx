@@ -152,7 +152,14 @@ const Event = () => {
 
         <div>
           <div className="h-[250px] w-full	">
-            <img src={button} alt="" className="w-full h-full object-contain" />
+            <a href="/capsule-creation">
+              <img
+                src={button}
+                alt=""
+                onClick={() => {}}
+                className="w-full h-full object-contain"
+              />
+            </a>
             <h2 className="text-center	">Create a capsule for this occasion</h2>
           </div>
           <Tabs className="flex jus" aria-label="Default tabs" style="default">
