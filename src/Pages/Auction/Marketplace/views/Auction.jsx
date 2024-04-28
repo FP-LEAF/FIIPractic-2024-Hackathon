@@ -3,11 +3,20 @@ import Footer from "../../../Home/components/Footer";
 import Navbar from "../../../Home/components/Navbar";
 import { Button, Popover } from "flowbite-react";
 import { Avatar, Dropdown } from "flowbite-react";
+
+import imageSrc1 from "../../../Marketplace/components/ICON_BATRAN.png";
+import imageSrc2 from "../../../Marketplace/components/ICON_CLASSIC.png";
+import imageSrc3 from "../../../Marketplace/components/ICON_LOVE.png";
+import imageSrc4 from "../../../Marketplace/components/ICON_MUZICA.png";
+import imageSrc5 from "../../../Marketplace/components/ICON_NUNTA.png";
+import imageSrc6 from "../../../Marketplace/components/ICON_STUDENT.png";
+
 const ProductPage = () => {
   const [images, setImages] = useState({
     img1: "https://www.justhourglasses.com/cdn/shop/products/chechen-smooth_78c88309-69a9-4a25-9147-56b269060d39.jpg?v=1483812145",
   });
 
+  const imgArray = [imageSrc2];
   const [activeImg, setActiveImage] = useState(images.img1);
 
   const [amount, setAmount] = useState(1);
@@ -15,6 +24,10 @@ const ProductPage = () => {
   const [price, setPrice] = useState(300); // Changed the initial price to 300
 
   const [isEditing, setIsEditing] = useState(false);
+
+  let [pagePrice, setPagePrice] = useState(300);
+
+  const [bidderName, setBidderName] = useState("Diana Smith");
 
   const handleInputChange = (e) => {
     setPrice(parseFloat(e.target.value));
@@ -26,6 +39,11 @@ const ProductPage = () => {
 
   const handleInputFocus = () => {
     setIsEditing(true);
+  };
+
+  const handleBidInput = () => {
+    setPagePrice(price);
+    setBidderName("Bonnie Green");
   };
 
   return (
@@ -40,7 +58,7 @@ const ProductPage = () => {
           </div>
           <div class="flex justify-center">
             <img
-              src={activeImg}
+              src={imgArray[Math.floor(Math.random() * imgArray.length)]}
               alt=""
               className="w-3/4 h-3/4 aspect-square object-cover rounded-xl"
             />
@@ -72,27 +90,28 @@ const ProductPage = () => {
             </p>
           </div>
           <p className="text-gray-700">
-            Con un'ammortizzazione incredibile per sostenerti in tutti i tuoi
-            chilometri, Invincible 3 offre un livello di comfort elevatissimo
-            sotto il piede per aiutarti a dare il massimo oggi, domani e oltre.
-            Questo modello incredibilmente elastico e sostenitivo, è pensato per
-            dare il massimo lungo il tuo percorso preferito e fare ritorno a
-            casa carico di energia, in attesa della prossima corsa.
+            Unlock the secrets of a visionary mind with this sealed time capsule
+            containing the final thoughts and words of Bill Gates, the renowned
+            tech mogul and philanthropist. Preserved for posterity, these
+            profound musings offer a rare glimpse into the wisdom and foresight
+            of one of the world's most influential figures. Uncover the untold
+            insights and revelations from a man whose impact has shaped our
+            modern world.
           </p>
           <div className="flex items-center gap-4">
             <p className="text-gray-600 text-sm mt-2">Current bidder:</p>
-            <Avatar
+            {/* <Avatar
               alt="User settings"
-              img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+              img="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
               rounded
               size="md" // Adjust size to make the photo bigger
-            />
+            /> */}
             <a>
               <span className="ml-1 cursor-pointer hover:underline text-violet-600 font-semibold">
-                Bonnie Green
+                {bidderName}
               </span>
             </a>
-            <h6 className="text-2xl font-semibold">$ 199.00</h6>
+            <h6 className="text-2xl font-semibold">{`${pagePrice} $`}</h6>
           </div>
 
           <div className="flex flex-row items-center gap-12"></div>
@@ -125,7 +144,11 @@ const ProductPage = () => {
                         </span>
                       </div>
                     </span>
-                    <button className="bg-violet-800 text-white font-semibold py-3 px-5 rounded-xl h-full">
+                    <button
+                      id="buy-btn"
+                      className="bg-violet-800 text-white font-semibold py-3 px-5 rounded-xl h-full"
+                      onClick={handleBidInput}
+                    >
                       Buy
                     </button>
                   </div>
