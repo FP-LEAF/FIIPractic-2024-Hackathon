@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "flowbite";
+import SoundComponent from './SoundComponent'; // Assuming SoundComponent is in the same directory
 
 const Chat2 = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,11 +22,14 @@ const Chat2 = () => {
     scrollToBottom();
   }, [messages]);
 
-  const sendMessage = (sender, messageText) => {
-    const trimmedText = messageText.trim();
-    if (trimmedText) {
+  const sendMessage = (sender, messageContent) => {
+    if (typeof messageContent === 'string' && messageContent.trim()) {
+      messageContent = messageContent.trim();
+    }
+
+    if (messageContent) {
       const newMessage = {
-        text: trimmedText,
+        content: messageContent,
         sender: sender,
         timestamp: new Date().toLocaleTimeString([], {
           hour: "2-digit",
@@ -34,7 +38,9 @@ const Chat2 = () => {
         status: "Delivered",
       };
       setMessages((prevMessages) => [...prevMessages, newMessage]);
-      handleBotResponse(trimmedText); // Handle the bot response based on user's input
+      if (typeof messageContent === 'string') {
+        handleBotResponse(messageContent); // Handle bot responses based on user input
+      }
     }
   };
 
@@ -44,7 +50,7 @@ const Chat2 = () => {
     if (userInput.toLowerCase().includes("salut bunicule")) {
       botMessage = "Salut cezarica";
     } else if (userInput.toLowerCase().includes("bunicule, bunicule, spune-mi o poveste")) {
-      botMessage = "Odată ca niciodată, era odată un împărat și o împărăteasă...";
+      botMessage = <SoundComponent />; // Sending a component instead of text
     }
 
     if (botMessage) {
@@ -83,7 +89,9 @@ const Chat2 = () => {
                     <span className="text-sm font-semibold text-gray-900 dark:text-white">{msg.sender === "User" ? "You" : "Popa Constantin"}</span>
                     <span className="text-sm font-normal text-gray-500 dark:text-gray-400">{msg.timestamp}</span>
                   </div>
-                  <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-black">{msg.text}</p>
+                  {typeof msg.content === 'string' ? (
+                    <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-black">{msg.content}</p>
+                  ) : msg.content}
                   {msg.sender === "User" && (
                     <span className="text-sm font-normal text-gray-500 dark:text-gray-400">Delivered</span>
                   )}
@@ -97,7 +105,7 @@ const Chat2 = () => {
           </div>
           <div className="flex items-center">
             <input type="text" value={inputValue} onChange={handleInputChange} onKeyPress={handleKeyPress} className="text-black flex-grow p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Type a message..." />
-            <button onClick={() => sendMessage("User")} className="px-4 py-2 bg-green-500 text-white rounded-r-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+            <button onClick={() => sendMessage("User", inputValue)} className="px-4 py-2 bg-green-500 text-white rounded-r-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
               Send
             </button>
           </div>

@@ -43,7 +43,7 @@ const Chat = () => {
 
       // Give some time to simulate bot response
       setTimeout(() => {
-        const botMessage = "Here's a simulated response!";
+        const botMessage = "Buna Marius";
         sendMessage("Bot", botMessage);
       }, 1000);
     }
@@ -60,9 +60,8 @@ const Chat = () => {
           {messages.map((msg, index) => (
             <div
               key={index}
-              className={`flex items-end ${
-                msg.sender === "User" ? "justify-end" : "justify-start"
-              }`}
+              className={`flex items-end ${msg.sender === "User" ? "justify-end" : "justify-start"
+                }`}
             >
               {msg.sender !== "User" && (
                 <img
@@ -72,15 +71,14 @@ const Chat = () => {
                 />
               )}
               <div
-                className={`flex flex-col w-full max-w-[320px] leading-1.5 p-4 ${
-                  msg.sender === "User"
-                    ? "bg-white-500 rounded-br-none"
-                    : "bg-gray-100 rounded-bl-none"
-                } border border-gray-200 dark:bg-gray-700`}
+                className={`flex flex-col w-full max-w-[320px] leading-1.5 p-4 ${msg.sender === "User"
+                  ? "bg-white-500 rounded-br-none"
+                  : "bg-gray-100 rounded-bl-none"
+                  } border border-gray-200 dark:bg-gray-700`}
               >
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                    {msg.sender === "User" ? "You" : "Bot"}
+                    {msg.sender === "User" ? "You" : "Prietena"}
                   </span>
                   <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
                     {msg.timestamp}
