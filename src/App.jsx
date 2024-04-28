@@ -24,7 +24,6 @@ const Bundle = lazy(() => import("./Pages/Bundle/Bundle"));
 const Feed = lazy(() => import("./Pages/Feed/views/Feed"));
 const LiveOppening = lazy(() => import("./Pages/LiveOppening/LiveOppening"));
 const Event = lazy(() => import("./Pages/Event/Event"));
-const Feed = lazy(() => import("./Pages/Feed/views/Feed"));
 
 const Fallback = (
   <div className="loader-container">
