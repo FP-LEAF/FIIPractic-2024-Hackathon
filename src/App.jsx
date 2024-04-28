@@ -24,6 +24,7 @@ const Bundle = lazy(() => import("./Pages/Bundle/Bundle"));
 const Feed = lazy(() => import("./Pages/Feed/views/Feed"));
 const LiveOppening = lazy(() => import("./Pages/LiveOppening/LiveOppening"));
 const Event = lazy(() => import("./Pages/Event/Event"));
+const Feed = lazy(() => import("./Pages/Feed/views/Feed"));
 
 const Fallback = (
   <div className="loader-container">
@@ -69,6 +70,7 @@ const App = () => {
             <Route path="/feed" element={<Feed />} />
             <Route path="/live-oppening" element={<LiveOppening />} />
             <Route path="/event" element={<Event />} />
+            <Route path="/feed" element={<Feed />} />
             <Route path="*" element={<ProtectedComponent />} />
           </Routes>
         </Suspense>
