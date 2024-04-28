@@ -151,19 +151,10 @@ const Event = () => {
         </div>
 
         <div>
-          <div className="flex justify-around items-center mt-20 mb-20 w-full h-25">
-            <div
-              className="bg-cover bg-center w-full h-full"
-              style={{ backgroundImage: `url('${button}')` }}
-            ></div>
+          <div className="h-[250px] w-full	">
+            <img src={button} alt="" className="w-full h-full object-contain" />
+            <h2 className="text-center	">Create a capsule for this occasion</h2>
           </div>
-          <button className="flex items-center justify-center bg-blue-500 rounded-md py-2 px-4">
-            <span
-              className="bg-cover bg-center w-6 h-6 mr-2"
-              style={{ backgroundImage: `url('${button}')` }}
-            ></span>
-            Click me!
-          </button>
           <Tabs className="flex jus" aria-label="Default tabs" style="default">
             <Tabs.Item active title="All" icon={HiUserCircle}>
               <div className="flex justify-around items-center mt-20 mb-20 flex-wrap	">

@@ -109,9 +109,11 @@ const BundleCreation = () => {
                 >
                   Add milestone
                 </Button>
-                <Button className="mt-10" type="submit">
-                  Create Bundle
-                </Button>
+                <a href="/bundle-view">
+                  <Button className="mt-10" type="submit">
+                    Create Bundle
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

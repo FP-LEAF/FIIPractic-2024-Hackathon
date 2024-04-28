@@ -168,7 +168,9 @@ export function CapsuleCreation() {
         <Checkbox id="remember" />
         <Label htmlFor="remember">Terms & Conditions</Label>
       </div>
-      <Button type="submit">Create Capsule</Button>
+      <a href="/capsule">
+        <Button type="submit">Create Capsule</Button>
+      </a>
     </div>
   );
 }
