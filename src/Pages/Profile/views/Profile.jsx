@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar.jsx";
+import Navbar from "../../Home/components/Navbar.jsx";
+
 import Footer from "../components/Footer.jsx";
 import api from "../../../api.js";
 import { CapsuleCard } from "../components/CapsuleCard.jsx";
@@ -252,7 +253,7 @@ export default function Profile() {
                       <h1 class="text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                         My{" "}
                         <mark class="px-2 text-white bg-blue-500 rounded dark:bg-blue-500">
-                          Bundles
+                          Capsules
                         </mark>
                       </h1>
                       <a href="/capsule-creation">

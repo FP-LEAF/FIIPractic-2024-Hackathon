@@ -54,16 +54,18 @@ const NotificationsDropdown = () => {
           <span className="block text-sm">Notifications</span>
         </Dropdown.Header>
         {notifications.map((notification) => (
-          <Dropdown.Item>
-            <NotificationCard
-              key={notification.id}
-              name={notification.name}
-              message={notification.message}
-              timeRemaining={notification.timeRemaining}
-              avatarSrc={user1}
-              capsuleSrc={poza1}
-            />
-          </Dropdown.Item>
+          <a href="/live-oppening">
+            <Dropdown.Item>
+              <NotificationCard
+                key={notification.id}
+                name={notification.name}
+                message={notification.message}
+                timeRemaining={notification.timeRemaining}
+                avatarSrc={user1}
+                capsuleSrc={poza1}
+              />
+            </Dropdown.Item>
+          </a>
         ))}
         <Dropdown.Divider />
         <Dropdown.Item>See all notifications</Dropdown.Item>

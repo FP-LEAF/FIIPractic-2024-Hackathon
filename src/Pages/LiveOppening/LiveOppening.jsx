@@ -6,6 +6,7 @@ import Timepicker from "../../Components/Timepicker.jsx";
 import CapsuleCard from "../../Components/CapsulelCard.jsx";
 import Chat from "./Chat";
 import image1 from "../../Components/assets/capsule-images/ICON_CLASSIC.png";
+import user1 from "./user1.jpg";
 
 const LiveOppening = () => {
   return (
@@ -27,7 +28,13 @@ const LiveOppening = () => {
           <main className="flex"></main>
         </div>
         <div className="flex justify-around items-center mt-20 mb-20">
-          <CapsuleCard imageSrc={image1}></CapsuleCard>
+          <CapsuleCard
+            name="O capsula plina de bunatati de la mamaie"
+            endDate="1 Feb 2020"
+            authorName="Mihai"
+            authorPhoto={user1}
+            imageSrc={image1}
+          ></CapsuleCard>
           <Chat></Chat>
         </div>
         <Footer className="mt-20" />
