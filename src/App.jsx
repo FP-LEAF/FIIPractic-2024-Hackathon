@@ -3,6 +3,7 @@ import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import Loader from "react-loaders";
 import { DarkModeProvider } from "./Components/DarkMode/DarkModeProvider";
+import TreeStructure from "./Pages/TreeStructure/TreeStructure";
 
 const Login = lazy(() => import("./Pages/Login/views/Login"));
 const Home = lazy(() => import("./Pages/Home/views/Landing"));
@@ -48,6 +49,7 @@ const App = () => {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/capsule" element={<Capsule />} />
             <Route path="/feed" element={<Feed />} />
+            <Route path="/tree" element={<TreeStructure />} />
             <Route path="*" element={
               <ProtectedComponent />
             } />
