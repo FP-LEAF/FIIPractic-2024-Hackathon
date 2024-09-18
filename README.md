@@ -159,10 +159,10 @@ The platform allows users to create **Family Trees** and **Friend Trees**. These
     <tr>
       <td align="left" valign="middle">
         <ul>
-          <li><a href="#">Enășcuță Răzvan-Paul</a></li>
-          <li><a href="#">Frențescu Cezar-Augustin</a></li>
-          <li><a href="#">Achiței Marius-Dumitru</a></li>
-          <li><a href="#">Leuștean Stefan</a></li>
+          <li><a href="https://github.com/EnascutaRazvan">Enășcuță Răzvan-Paul</a></li>
+          <li><a href="https://github.com/FrentescuCezar">Frențescu Cezar-Augustin</a></li>
+          <li><a href="https://github.com/MariusAchitei">Achiței Marius-Dumitru</a></li>
+          <li><a href="https://github.com/stefali1-dev">Leuștean Stefan</a></li>
         </ul>
       </td>
       <td align="left" valign="middle">
