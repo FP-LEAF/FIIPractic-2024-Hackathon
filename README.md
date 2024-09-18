@@ -108,7 +108,7 @@ A notification system alerts users when a capsule from their **Family Tree** or 
 
 | **Notification Example** | **Live Pre-Chat Example** |
 | :---: | :---: |
-| <img src="https://github.com/FP-LEAF/FIIPractic-2024-Hackathon/blob/main/Screenshots/Screenshot_9.jpg?raw=true" width="300" /> | <img src="https://github.com/FP-LEAF/FIIPractic-2024-Hackathon/blob/main/Screenshots/Screenshot_9_Chat.gif?raw=true" width="700" /> |
+| <img src="https://github.com/FP-LEAF/FIIPractic-2024-Hackathon/blob/main/Screenshots/Screenshot_9.jpg?raw=true" width="600" /> | <img src="https://github.com/FP-LEAF/FIIPractic-2024-Hackathon/blob/main/Screenshots/Screenshot_9_Chat.gif?raw=true" width="700" /> |
 
 </div>
 
